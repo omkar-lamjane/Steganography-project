@@ -1,133 +1,146 @@
 LSB Image Steganography Project
+
 Author: Omkar Lamjane
-Under the guidance of Emertxe Institute and Guruvignesh Sir
-Project Overview
+Guidance: Emertxe Institute, Guruvignesh Sir
 
-This project is based on LSB (Least Significant Bit) Image Steganography.
-It allows hiding a secret file (such as .txt, .c, .h, .sh) inside a BMP image file without altering the visible appearance of the image.
+1. Project Overview
 
-The project supports two main operations:
+This project implements LSB (Least Significant Bit) Image Steganography using the C programming language.
 
-Encoding – Hiding the secret file inside a BMP image
+It allows hiding a secret text-based file inside a BMP image without affecting the visible appearance of the image.
 
-Decoding – Extracting the hidden secret file back from the image
+Supported Operations
 
-What is Steganography?
+Encoding – Hide a secret file inside an image
 
-Steganography is a technique used to hide one file inside another in such a way that the existence of the hidden file is not noticeable.
+Decoding – Extract the hidden file back from the image
 
-In this project, the LSB technique is used, where secret data is embedded into the least significant bit of each pixel in the image.
+2. What is Steganography?
 
-Since changing the least significant bit does not create a visible difference in the image, the hidden data remains undetectable to the human eye.
+Steganography is the technique of hiding data inside another file so that the existence of the data is concealed.
 
-Encoding and Decoding
+Why LSB Technique?
 
-Encoding refers to hiding the secret file inside an image using bit-level manipulation.
+Uses the least significant bit of image pixels
 
-Decoding refers to extracting the hidden secret file back from the encoded image.
+Visual quality of image remains unchanged
 
-Encoding vs Encryption
-Feature	Encoding	Encryption
-Purpose	Hide data inside another medium	Secure data using a key
-Goal	Conceal the existence of data	Prevent unauthorized access
-Focus	Data hiding	Data protection
-Example	Hiding secret.txt inside image.bmp	Locking secret.txt with a password
+Hidden data is difficult to detect
 
-Simple rule:
-Encoding hides the message, while encryption locks the message.
+3. Encoding vs Decoding
+Encoding
 
-Features
+Converts secret file into binary
 
-Supports hiding text-based files (.txt, .c, .h, .sh)
+Embeds binary data into image LSBs
 
-Allows complete recovery of the original secret file
+Decoding
 
-Uses LSB-based bitwise manipulation
+Reads LSBs from encoded image
 
-Preserves the original image appearance
+Reconstructs the original secret file
 
-Displays step-by-step execution on the terminal
+4. Encoding vs Encryption
+Aspect	Encoding	Encryption
+Purpose	Hide data	Secure data
+Visibility	Data existence hidden	Data visible but unreadable
+Key required	No	Yes
+Used here	Yes	No
 
-Encoding Flow
+Remember:
+Encoding hides data, encryption locks data.
 
--> Files opened successfully
--> Image capacity verified
--> BMP header copied
--> Magic string encoded
--> Secret file extension size encoded
--> Secret file extension encoded
--> Secret file size encoded
--> Secret file data encoded
--> Remaining image data copied
+5. Features
 
-The secret file is successfully embedded into the output image.
+Supports .txt, .c, .h, .sh files
 
-Decoding Flow
+Uses LSB bit manipulation
 
--> Encoded image file opened
--> Magic string decoded
--> Secret file extension size decoded
--> Secret file extension decoded
--> Output file name generated
--> Secret file size decoded
--> Secret file data extracted
+Original image appearance preserved
 
-The encoded image is successfully decoded and the secret file is recovered.
+Complete recovery of secret file
 
-Tools and Technologies Used
+Command-line based execution
 
-Programming Language: C
+6. Encoding Process
+1. Open source image and secret file
+2. Check image capacity
+3. Copy BMP header
+4. Encode magic string
+5. Encode secret file extension
+6. Encode secret file size
+7. Encode secret file data
+8. Copy remaining image data
 
-Concepts Used: File Handling, Bitwise Operations, Command-Line Arguments
+
+Result:
+Secret file is successfully encoded into the image.
+
+7. Decoding Process
+1. Open encoded image
+2. Decode magic string
+3. Decode extension size
+4. Decode extension
+5. Decode secret file size
+6. Extract secret file data
+
+
+Result:
+Secret file is successfully recovered.
+
+8. Tools and Technologies
+
+Language: C
+
+Concepts: File handling, Bitwise operations
 
 Compiler: GCC
 
-Operating System: Linux
+Platform: Linux
 
-How to Run
+9. How to Run
 Encoding
 ./a.out -e beautiful.bmp secret.txt stego.bmp
 
 
--e specifies encode mode
+Arguments:
 
-beautiful.bmp is the source image
+-e → Encode mode
 
-secret.txt is the file to be hidden
+beautiful.bmp → Source image
 
-stego.bmp is the output encoded image
+secret.txt → File to hide
+
+stego.bmp → Output image
 
 Decoding
 ./a.out -d stego.bmp output.txt
 
 
--d specifies decode mode
+Arguments:
 
-stego.bmp is the encoded image
+-d → Decode mode
 
-output.txt is the recovered secret file
+stego.bmp → Encoded image
 
-Learning Outcome
+output.txt → Recovered file
 
-Understood LSB manipulation in image pixel data
+10. Learning Outcome
 
-Gained hands-on experience with bitwise operations in C
+Learned LSB manipulation in images
 
-Improved knowledge of binary file handling
+Understood binary file handling
 
-Learned practical data hiding and extraction techniques
+Improved bitwise programming skills
 
-Acknowledgment
+Gained practical steganography knowledge
 
-I would like to sincerely thank Emertxe Institute and Guruvignesh Sir
-for their continuous guidance and support throughout this project.
+11. Acknowledgment
 
-Related Projects
+Thanks to Emertxe Institute and Guruvignesh Sir
+for guidance and support throughout this project.
 
-Address Book Project
-https://github.com/omkar-lamjane/AddressBook-project
-
-Author
+12. Author
 
 Omkar Lamjane
 GitHub: https://github.com/omkar-lamjane
