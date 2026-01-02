@@ -4,55 +4,54 @@ Under the guidance of Emertxe Institute and Guruvignesh Sir
 Project Overview
 
 This project is based on LSB (Least Significant Bit) Image Steganography.
-It allows us to hide a secret file (such as .txt, .c, .h, .sh) inside a .bmp image file without changing the visible appearance of the image.
+It allows hiding a secret file (such as .txt, .c, .h, .sh) inside a BMP image file without altering the visible appearance of the image.
 
 The project supports two main operations:
 
 Encoding – Hiding the secret file inside a BMP image
 
-Decoding – Extracting the hidden file back from the image
+Decoding – Extracting the hidden secret file back from the image
 
 What is Steganography?
 
-Steganography is a technique used to hide one file inside another in such a way that its existence is not noticeable.
-For example, a secret text file can be hidden inside an image file while the image continues to look the same.
+Steganography is a technique used to hide one file inside another in such a way that the existence of the hidden file is not noticeable.
 
-In this project, the LSB technique is used, where data is hidden in the least significant bit of each pixel in the image.
+In this project, the LSB technique is used, where secret data is embedded into the least significant bit of each pixel in the image.
 
-LSB is chosen because modifying the least significant bit does not cause a visible change in the image, making the hidden data difficult to detect.
+Since changing the least significant bit does not create a visible difference in the image, the hidden data remains undetectable to the human eye.
 
-What is Encoding and Decoding?
+Encoding and Decoding
 
-Encoding refers to the process of hiding the secret file inside the image using bit-level manipulation.
+Encoding refers to hiding the secret file inside an image using bit-level manipulation.
 
 Decoding refers to extracting the hidden secret file back from the encoded image.
 
 Encoding vs Encryption
 Feature	Encoding	Encryption
-Purpose	To hide or represent data in another form	To secure data so only authorized users can read it
-Goal	Hide the existence of data	Make data unreadable without a key
-Focus	Concealment of data	Protection of data
-Example in this project	Hiding secret.txt inside image.bmp	Locking secret.txt using a password
+Purpose	Hide data inside another medium	Secure data using a key
+Goal	Conceal the existence of data	Prevent unauthorized access
+Focus	Data hiding	Data protection
+Example	Hiding secret.txt inside image.bmp	Locking secret.txt with a password
 
-Simple way to remember:
+Simple rule:
 Encoding hides the message, while encryption locks the message.
 
 Features
 
-Supports hiding any text-based file (.txt, .c, .h, .sh) inside a BMP image
+Supports hiding text-based files (.txt, .c, .h, .sh)
 
-Allows decoding and recovery of the original secret file
+Allows complete recovery of the original secret file
 
-Uses LSB-based bit manipulation
+Uses LSB-based bitwise manipulation
 
-Maintains the original appearance of the image
+Preserves the original image appearance
 
-Displays a clear step-by-step process on the terminal
+Displays step-by-step execution on the terminal
 
 Encoding Flow
 
 -> Files opened successfully
--> Image capacity checked
+-> Image capacity verified
 -> BMP header copied
 -> Magic string encoded
 -> Secret file extension size encoded
@@ -61,7 +60,7 @@ Encoding Flow
 -> Secret file data encoded
 -> Remaining image data copied
 
-Secret file is encoded successfully into the output image.
+The secret file is successfully embedded into the output image.
 
 Decoding Flow
 
@@ -73,7 +72,7 @@ Decoding Flow
 -> Secret file size decoded
 -> Secret file data extracted
 
-Encoded image is decoded successfully and the secret file is recovered.
+The encoded image is successfully decoded and the secret file is recovered.
 
 Tools and Technologies Used
 
@@ -90,7 +89,7 @@ Encoding
 ./a.out -e beautiful.bmp secret.txt stego.bmp
 
 
--e indicates encode mode
+-e specifies encode mode
 
 beautiful.bmp is the source image
 
@@ -102,7 +101,7 @@ Decoding
 ./a.out -d stego.bmp output.txt
 
 
--d indicates decode mode
+-d specifies decode mode
 
 stego.bmp is the encoded image
 
@@ -110,13 +109,13 @@ output.txt is the recovered secret file
 
 Learning Outcome
 
-Gained understanding of how LSB manipulation works in pixel data
+Understood LSB manipulation in image pixel data
 
-Learned practical usage of bitwise operations in C
+Gained hands-on experience with bitwise operations in C
 
-Improved knowledge of file handling and binary file processing
+Improved knowledge of binary file handling
 
-Understood the working of data hiding and extraction techniques
+Learned practical data hiding and extraction techniques
 
 Acknowledgment
 
